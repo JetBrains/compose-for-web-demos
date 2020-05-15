@@ -4,9 +4,13 @@ import androidx.compose.Composable
 import androidx.compose.DomComposer
 import androidx.compose.SourceLocation
 import androidx.compose.currentComposer
+import androidx.compose.*
+import org.w3c.dom.Element
 import org.w3c.dom.HTMLElement
 import org.w3c.dom.css.CSSStyleDeclaration
 import org.w3c.dom.events.Event
+import org.w3c.dom.events.InputEvent
+import org.w3c.dom.events.KeyboardEvent
 
 val button = SourceLocation("button")
 val div = SourceLocation("div")
@@ -107,4 +111,75 @@ fun Text(value: String) {
         { composer.document.createTextNode(value) },
         { update(value) { textContent = it } }
     )
+}
+
+val input = SourceLocation("input")
+
+@Composable
+fun Input(
+    state: MutableState<String>,
+    placeholder: String? = null,
+    onChange: ((e: Event) -> Unit)? = null,
+    onKeypress: ((e: KeyboardEvent) -> Unit)? = null
+) {
+    val composer = (currentComposer as DomComposer)
+    composer.emit(
+        input,
+        {
+            composer.document.createElement("input").also { element ->
+                placeholder?.let { element.setAttribute("placeholder", placeholder) }
+
+                element.asDynamic().value = state.value
+
+                element.addEventListener("input", { e ->
+                    state.value = (e as InputEvent).target.asDynamic().value ?: ""
+                })
+
+                onChange?.let { element.addEventListener("change", { e -> onChange(e) }) }
+
+                onKeypress?.let { element.addEventListener("keypress", { e -> onKeypress(e as KeyboardEvent) }) }
+            }
+        },
+        { update(state.value) { asDynamic().value = it } }
+    )
+}
+
+@Composable
+fun Input(value: String, onChange: ((e: Event) -> Unit)? = null) {
+    Input(state { value }, onChange = onChange)
+}
+
+@Composable
+fun Checkbox(
+    label: String,
+    state: MutableState<Boolean>,
+    onChange: ((e: Event) -> Unit)? = null,
+) {
+    val composer = (currentComposer as DomComposer)
+    composer.emit(
+        input,
+        {
+            composer.document.createElement("input").also { element ->
+                element.setAttribute("type", "checkbox")
+
+                element.asDynamic().checked = state.value
+
+                element.addEventListener("change", { e ->
+                    state.value = e.target.asDynamic().checked
+                    if (onChange != null) onChange(e)
+                })
+            }
+        },
+        { update(state.value) { asDynamic().checked = it } }
+    )
+    Text(label)
+}
+
+@Composable
+fun Checkbox(
+    label: String,
+    value: Boolean,
+    onChange: ((e: Event) -> Unit)? = null,
+) {
+    Checkbox(label, state { value }, onChange)
 }

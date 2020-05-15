@@ -7,6 +7,8 @@ import androidx.compose.Composable
 import androidx.compose.getValue
 import androidx.compose.setValue
 import androidx.compose.state
+import demos.Inputs
+import demos.Todo
 import demos.ripple.RippleDemo
 import demos.tictactoe.Counter
 import demos.tictactoe.EmojiWar
@@ -30,6 +32,8 @@ val allDemos: List<Demo> = listOf(
     Demo("Ripple") { RippleDemo() },
     Demo("Tic-tac-toe") { TicTacToeView() },
     Demo("Emoji War") { EmojiWar() },
+    Demo("Todo") { Todo() },
+    Demo("Inputs") { Inputs() },
 )
 
 @Composable
