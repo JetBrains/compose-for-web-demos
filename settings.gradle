@@ -1,0 +1,16 @@
+pluginManagement {
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == "org.jetbrains.compose.plugin") {
+                useModule("org.jetbrains.kotlin:compose-gradle-plugin:${requested.version}")
+            }
+        }
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url 'https://plugins.gradle.org/m2/' }
+    }
+}
+rootProject.name = 'jksce'
+
