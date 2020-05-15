@@ -1,43 +1,44 @@
 plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '1.4.255-SNAPSHOT'
-    id 'org.jetbrains.compose.plugin' version '1.4.255-SNAPSHOT'
+    id 'org.jetbrains.kotlin.multiplatform' version '1.4.0-dev-8554'
+    id 'org.jetbrains.compose.plugin' version '1.4.0-dev-8554'
 }
 
-group 'org.example'
+group 'org.jb.k.js.compose'
 version '1.0-SNAPSHOT'
 
 repositories {
     mavenLocal()
-    maven { url 'https://teamcity.jetbrains.com/guestAuth/app/rest/builds/buildType:(id:Kotlin_KotlinPublic_Compiler),number:1.4.0-dev-8369,branch:(default:any)/artifacts/content/maven' }
+    maven { url 'https://dl.bintray.com/kotlin/kotlin-dev' }
+    jcenter()
     mavenCentral()
+    maven { url 'https://plugins.gradle.org/m2/' }
 }
 
 kotlin {
-    js {
+    js(LEGACY) {
         browser {
             binaries.executable()
         }
     }
 
     sourceSets {
-        commonMain {
+        commonMain{
             dependencies {
                 implementation kotlin('stdlib-common')
             }
         }
-        commonTest {
+        jsMain {
             dependencies {
-                implementation kotlin('test-common')
-                implementation kotlin('test-annotations-common')
+                implementation kotlin('stdlib-js')
             }
         }
-        jsMain.dependencies {
-            implementation kotlin('stdlib-js')
-        }
-        jsTest {
-            dependencies {
-                implementation kotlin('test-js')
-            }
-        }
+    }
+}
+
+compileKotlinJs {
+    kotlinOptions {
+        freeCompilerArgs += [
+                "-Xir-produce-js",
+        ]
     }
 }
