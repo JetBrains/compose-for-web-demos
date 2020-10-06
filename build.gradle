@@ -1,13 +1,16 @@
 plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '1.4.0-dev-8554'
-    id 'org.jetbrains.compose.plugin' version '1.4.0-dev-8554'
+//    id 'org.jetbrains.kotlin.multiplatform' version '1.4.0-dev-8554'
+//    id 'org.jetbrains.compose.plugin' version '1.4.0-dev-8554'
+    id 'org.jetbrains.kotlin.multiplatform' version '1.4.255-SNAPSHOT'
+    id 'org.jetbrains.compose.plugin' version '1.4.255-SNAPSHOT'
 }
 
 group 'org.jb.k.js.compose'
 version '1.0-SNAPSHOT'
 
 repositories {
-    mavenLocal()
+//    mavenLocal()
+    maven { url 'https://dl.bintray.com/bashor/test' }
     maven { url 'https://dl.bintray.com/kotlin/kotlin-dev' }
     jcenter()
     mavenCentral()

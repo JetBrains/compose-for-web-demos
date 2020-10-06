@@ -7,6 +7,8 @@ pluginManagement {
         }
     }
     repositories {
+//        mavenLocal()
+        maven { url 'https://dl.bintray.com/bashor/test' }
         maven { url 'https://dl.bintray.com/kotlin/kotlin-dev' }
         mavenCentral()
         maven { url 'https://plugins.gradle.org/m2/' }
