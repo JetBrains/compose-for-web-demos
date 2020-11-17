@@ -13,12 +13,12 @@ It is not related to Google, except insofar as it is based on [Jetpack Compose](
 It currently doesn't support platforms other than Android, but the core was developed without a dependency on Android and the UI framework depends only on things like canvas, font, input, and other basics.
 
 ## Jetpack Compose for Web
-With this project we tried to adapt Jetpack Compose for the JavaScript world. The main idea is to allow you to share code and expertise between platforms, build web applications without using JS frameworks.
+With this project we tried to adapt Jetpack Compose for the JavaScript world. The main idea is to allow you to share code and expertise between platforms, build web applications in pure Kotlin.
 
 **Jetpack Compose for Web consists of:**
 
 * The compiler plugin, adapted for the [new Kotlin/JS compiler backend](https://kotlinlang.org/docs/reference/js-ir-compiler.html).
-* The runtime library, ported to the JS platform.
+* The runtime library, ported to Kotlin/JS.
 * A simple UI library to work with DOM-elements.
 
 Feel free to ask any questions and share your feedback. Join [#compose-web](https://kotlinlang.slack.com/archives/C01F2HV7868) channel in the official [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
