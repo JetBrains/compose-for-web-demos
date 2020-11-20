@@ -23,7 +23,7 @@ With this project we tried to adapt Jetpack Compose for the JavaScript world. Th
 
 Feel free to ask any questions and share your feedback. Join [#compose-web](https://kotlinlang.slack.com/archives/C01F2HV7868) channel in the official [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
 
-P.S. JetBrains plans to continue experimenting with this technology and we are now looking for [UI Framework Developer (JetBrains Compose Team)](https://www.jetbrains.com/careers/jobs/ui-framework-developer-400/).
+P.S. JetBrains plans to continue experimenting with this technology and we are looking for [UI Framework Developer (JetBrains Compose Team)](https://www.jetbrains.com/careers/jobs/ui-framework-developer-400/).
 
 
 ## Online demo
