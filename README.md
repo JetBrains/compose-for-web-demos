@@ -1,6 +1,6 @@
 [![JetBrains team project](https://jb.gg/badges/team-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 
-**Disclaimer**: This is the result of a project for the [8th Annual JetBrains Hackathon](https://blog.jetbrains.com/blog/2020/07/17/jetbrains-8th-annual-hackathon-home-edition/). It's only a proof of concept, and the JetBrains team doesn't have any plans to support or develop it and doesn't recommend using it in production.
+**Disclaimer**: This is the result of a project for the [8th Annual JetBrains Hackathon](https://blog.jetbrains.com/blog/2020/07/17/jetbrains-8th-annual-hackathon-home-edition/). It's only a proof of concept, and the JetBrains team doesn't have any plans to support or develop this project and doesn't recommend using it in production.
 It is not related to Google, except insofar as it is based on [Jetpack Compose](https://developer.android.com/jetpack/compose). As far as we know, Google does not have any plans to support or develop it.
 
 ## What is Jetpack Compose
